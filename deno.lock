@@ -1,0 +1,38 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@fartlabs/jsonx@^0.0.10": "jsr:@fartlabs/jsonx@0.0.10",
+      "jsr:@fartlabs/rt@^0.0.2": "jsr:@fartlabs/rt@0.0.2",
+      "jsr:@fartlabs/rtx@^0.0.3": "jsr:@fartlabs/rtx@0.0.3",
+      "jsr:@std/collections@^0.220.1": "jsr:@std/collections@0.220.1"
+    },
+    "jsr": {
+      "@fartlabs/jsonx@0.0.10": {
+        "integrity": "d873aae5c68f97543683b91598c9307f1541063c9f2f62a9f50583deea8a30ee",
+        "dependencies": [
+          "jsr:@std/collections@^0.220.1"
+        ]
+      },
+      "@fartlabs/rt@0.0.2": {
+        "integrity": "bea3f3ce6e74a50aef54af43772c23adfb45af860daafc5490d494bc496ee5af"
+      },
+      "@fartlabs/rtx@0.0.3": {
+        "integrity": "1af5e636442545e05933205db00b39d5774b14312c40f7a589f318488abed0b6",
+        "dependencies": [
+          "jsr:@fartlabs/rt@^0.0.2"
+        ]
+      },
+      "@std/collections@0.220.1": {
+        "integrity": "5820a8d7f69ef93af6807249dfa4be5b97ebf8654c587826612744cf7ae57ef2"
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@fartlabs/jsonx@^0.0.10",
+      "jsr:@fartlabs/rtx@^0.0.3"
+    ]
+  }
+}

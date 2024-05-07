@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
+  "imports": {
+    "@fartlabs/jsonx": "jsr:@fartlabs/jsonx@^0.0.10",
+    "@fartlabs/rtx": "jsr:@fartlabs/rtx@^0.0.3"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@fartlabs/jsonx"
+  }
+}
