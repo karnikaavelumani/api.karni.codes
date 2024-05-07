@@ -9,11 +9,33 @@ export interface KarniProject {
   sameAs: string[];
 }
 
+export const TOPIC_SHOWCASE = "showcase" as const;
+
 const karniProjects = [
-  {
-    name: "i.karni.codes",
-    url: "https://i.karni.codes",
-    description: "My personal website",
-    sameAs: ["https://github.com/karnikaavelumani/portfolio"],
-  },
+  ...(await getGitHubProjects(TOPIC_SHOWCASE)),
 ] as const satisfies KarniProject[];
+
+async function getGitHubProjects(topic: string): Promise<KarniProject[]> {
+  const response = await fetch(makeGitHubUserReposURL("karnikaavelumani"));
+  // deno-lint-ignore no-explicit-any
+  return ((await response.json()) as any[])
+    .filter((repository) => repository.topics.includes(topic))
+    .map((repository) => {
+      const project: KarniProject = {
+        name: repository.name,
+        url: repository.html_url,
+        description: repository.description,
+        sameAs: [],
+      };
+
+      if (repository.homepage) {
+        project.sameAs.push(repository.homepage);
+      }
+
+      return project;
+    });
+}
+
+function makeGitHubUserReposURL(username: string): string {
+  return `https://api.github.com/users/${username}/repos`;
+}
